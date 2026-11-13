@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tool-using-research-agent"
+version = "0.1.0"
+description = "A small, source-grounded research agent with a strict tool budget."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["ddgs>=9.0.0", "httpx>=0.27.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+research-agent = "research_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
